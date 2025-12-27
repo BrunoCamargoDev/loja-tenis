@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Sneakers Store{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="bg-white rounded-xl shadow-sm p-8 mb-12">
+  <div class="grid md:grid-cols-2 gap-8 items-center">
+    
+    <!-- Texto -->
+    <div>
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        Encontre o tênis perfeito
+        <span class="text-blue-600">para o seu estilo</span>
+      </h2>
+
+      <p class="text-slate-600 mb-6">
+        As melhores marcas, modelos exclusivos e lançamentos do momento.
+        Qualidade, conforto e autenticidade em um só lugar.
+      </p>
+
+      <a href="#produtos"
+         class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+        Ver coleção
+      </a>
+    </div>
+
+    <!-- Imagem -->
+    <div class="flex justify-center">
+      <div class="w-full h-64 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400">
+        Imagem destaque
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <h3 class="text-2xl font-bold text-slate-900 mb-6">
+    Tênis em destaque
+  </h3>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    {% for tenis in tenis %}
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+
+      <!-- Imagem (placeholder por enquanto) -->
+      <div class="h-48 bg-slate-100 flex items-center justify-center text-slate-400">
+        <img src="{{ tenis.imagem.url }}" alt="{{ tenis.nome }}">
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-semibold text-slate-900 mb-1">
+          {{ tenis.nome }}
+        </h4>
+
+        <p class="text-sm text-slate-500 mb-2">
+          {{ tenis.marca.nome }} - {{ tenis.categoria.nome }}
+        </p>
+
+        <div class="flex items-center justify-between">
+          <span class="text-lg font-bold text-slate-900">
+            R$ {{ tenis.preco }}
+          </span>
+
+          <a href="#"
+             class="text-blue-600 text-sm font-medium hover:underline">
+            Ver mais
+          </a>
+        </div>
+      </div>
+
+    </div>
+    {% empty %}
+      <p class="text-slate-500">Nenhum tênis cadastrado.</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+
+{% endblock %}

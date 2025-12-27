@@ -1,0 +1,23 @@
+<!-- templates/tenis/lista.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Vitrine de Tênis</h1>
+
+{% for t in tenis %}
+  <p>{{ t.nome }} - R$ {{ t.preco }}</p>
+{% empty %}
+  <p>Nenhum tênis cadastrado.</p>
+{% endfor %}
+
+</body>
+</html>
+
+

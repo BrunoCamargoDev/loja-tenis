@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Catálogo | Sneakers Store{% endblock %}
+
+{% block content %}
+
+<!-- HEADER CATÁLOGO -->
+<section class="mb-10">
+  <h2 class="text-3xl font-bold text-slate-900 mb-2">
+    Catálogo de Tênis
+  </h2>
+  <p class="text-slate-600">
+    Explore nossos modelos por marca, categoria e estilo.
+  </p>
+</section>
+
+<!-- FILTROS (visual por enquanto) -->
+<section class="bg-white rounded-xl shadow-sm p-6 mb-10">
+  <form method="get">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+      <!-- Marca -->
+      <select name="marca"
+        class="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+        <option value="">Todas as marcas</option>
+        {% for marca in marcas %}
+          <option value="{{ marca.id }}">
+            {{ marca.nome }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <!-- Categoria -->
+      <select name="categoria"
+        class="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+        <option value="">Todas as categorias</option>
+        {% for categoria in categorias %}
+          <option value="{{ categoria.id }}">
+            {{ categoria.nome }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <!-- Preço máximo -->
+      <input type="number" name="preco_max" step="0.01" min="0"
+        placeholder="Preço máx."
+        class="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500">
+
+      <button type="submit"
+        class="bg-slate-900 text-white rounded-lg px-4 py-2 text-sm hover:bg-slate-800 transition">
+        Filtrar
+      </button>
+
+    </div>
+  </form>
+</section>
+
+
+<!-- GRID PRODUTOS -->
+<section>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+    {% for tenis in tenis %}
+    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+
+      <!-- Imagem -->
+      <div class="h-48 bg-slate-100 overflow-hidden">
+        {% if tenis.imagem %}
+          <img src="{{ tenis.imagem.url }}"
+               alt="{{ tenis.nome }}"
+               class="w-full h-full object-cover">
+        {% else %}
+          <div class="flex items-center justify-center h-full text-slate-400">
+            Sem imagem
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Info -->
+      <div class="p-4">
+        <h3 class="font-semibold text-slate-900 mb-1">
+          {{ tenis.nome }}
+        </h3>
+
+        <p class="text-sm text-slate-500 mb-2">
+          {{ tenis.marca.nome }} • {{ tenis.categoria.nome }}
+        </p>
+
+        <div class="flex items-center justify-between">
+          <span class="text-lg font-bold text-slate-900">
+            R$ {{ tenis.preco }}
+          </span>
+
+          <a href="#"
+             class="text-blue-600 text-sm font-medium hover:underline">
+            Ver detalhes
+          </a>
+        </div>
+      </div>
+
+    </div>
+    {% empty %}
+      <p class="text-slate-500 col-span-full">
+        Nenhum tênis encontrado.
+      </p>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% endblock %}
