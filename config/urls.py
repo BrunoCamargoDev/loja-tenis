@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from tenis.views import lista_tenis, base, home, catalogo
 from django.conf import settings
+from dashboard import views as dashboard_views
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -26,6 +27,14 @@ urlpatterns = [
     path('base/', base, name='base'),
     path('', home, name='home'),
     path('catalogo/', catalogo, name='catalogo'),
+
+    # Dashboard URLs 
+    path('login/', dashboard_views.login_view, name='dashboard_login'),
+    path('dashboard/', dashboard_views.dashboard_home, name='dashboard_home'),
+    path('logout/', dashboard_views.logout_view, name='dashboard_logout'),
+
+
+
 ]
 
 if settings.DEBUG:

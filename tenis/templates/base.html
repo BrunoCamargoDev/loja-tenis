@@ -22,13 +22,40 @@
         Sneakers<span class="text-blue-500">Store</span>
       </h1>
 
-      <!-- Menu -->
-      <nav class="space-x-6 text-sm font-medium">
-        <a href="{% url 'home' %}" class="hover:text-blue-400 transition">Início</a>
-        <a href="{% url 'catalogo' %}" class="hover:text-blue-400 transition">Tênis</a>
-        <a href="#" class="hover:text-blue-400 transition">Ofertas</a>
-        <a href="#" class="hover:text-blue-400 transition">Contato</a>
-      </nav>
+      
+<!-- Menu -->
+<nav class="space-x-6 text-sm font-medium">
+  <a href="{% url 'home' %}"
+     class="transition
+     {% if request.resolver_match.url_name == 'home' %}
+        text-blue-500
+     {% else %}
+        hover:text-blue-400
+     {% endif %}">
+     Início
+  </a>
+
+  <a href="{% url 'catalogo' %}"
+     class="transition
+     {% if request.resolver_match.url_name == 'catalogo' %}
+        text-blue-500
+     {% else %}
+        hover:text-blue-400
+     {% endif %}">
+     Tênis
+  </a>
+
+  <a href="#"
+     class="transition hover:text-blue-400">
+     Ofertas
+  </a>
+
+  <a href="#"
+     class="transition hover:text-blue-400">
+     Contato
+  </a>
+</nav>
+
 
     </div>
   </header>

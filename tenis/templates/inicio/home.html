@@ -29,7 +29,18 @@
     <!-- Imagem -->
     <div class="flex justify-center">
       <div class="w-full h-64 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400">
-        Imagem destaque
+    {% if destaque and destaque.imagem %}
+      <img
+        src="{{ destaque.imagem.url }}"
+        alt="{{ destaque.nome }}"
+        class="w-full h-full object-cover"
+      >
+    {% else %}
+      <span class="text-center text-slate-400">
+        Imagem de destaque não disponível
+      </span>
+    {% endif %}
+        
       </div>
     </div>
 

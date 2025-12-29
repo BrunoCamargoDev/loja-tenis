@@ -12,7 +12,8 @@ def base(request):
 
 def home(request):
     tenis = Tenis.objects.all()
-    return render(request, 'inicio/home.html', {'tenis': tenis})
+    destaque = Tenis.objects.filter(DestaquePrincipal=True).first()
+    return render(request, 'inicio/home.html', {'tenis': tenis, 'destaque': destaque})
 
 
 def catalogo(request):

@@ -22,6 +22,12 @@ class Tenis(models.Model):
     estoque = models.IntegerField()
     imagem = models.ImageField(upload_to='tenis-img/', null=True, blank=True)
     data_adc = models.DateTimeField(auto_now_add=True)
+    DestaquePrincipal = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        if self.DestaquePrincipal:
+            Tenis.objects.filter(DestaquePrincipal=True).update(DestaquePrincipal=False)
+        super().save(*args, **kwargs)
 
     categoria = models.ForeignKey(
         Categoria,
@@ -32,6 +38,7 @@ class Tenis(models.Model):
         Marca,
         on_delete=models.CASCADE
     )
+
 
     def __str__(self):
         return self.nome
