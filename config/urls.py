@@ -32,9 +32,7 @@ urlpatterns = [
     path('login/', dashboard_views.login_view, name='dashboard_login'),
     path('dashboard/', dashboard_views.dashboard_home, name='dashboard_home'),
     path('logout/', dashboard_views.logout_view, name='dashboard_logout'),
-
-
-
+    path('cadastrar-tenis/', dashboard_views.cadastrar_tenis, name='cadastrar_tenis'),
 ]
 
 if settings.DEBUG:

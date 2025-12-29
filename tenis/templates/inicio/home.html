@@ -20,7 +20,7 @@
         Qualidade, conforto e autenticidade em um só lugar.
       </p>
 
-      <a href="#produtos"
+      <a href="{% url 'catalogo' %}"
          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition">
         Ver coleção
       </a>
@@ -72,15 +72,29 @@
           {{ tenis.marca.nome }} - {{ tenis.categoria.nome }}
         </p>
 
+        <p class="text-sm text-slate-500 mb-2">
+          Estoque: {{ tenis.estoque }}
+        </p>
+
         <div class="flex items-center justify-between">
           <span class="text-lg font-bold text-slate-900">
             R$ {{ tenis.preco }}
           </span>
 
+          {% if user.is_authenticated %}
           <a href="#"
              class="text-blue-600 text-sm font-medium hover:underline">
             Ver mais
           </a>
+
+          {% else %}
+          <a href="#"
+            class="text-blue-600 text-sm font-medium hover:underline">
+            Ver mais
+          </a>
+          
+          {% endif %}
+
         </div>
       </div>
 
