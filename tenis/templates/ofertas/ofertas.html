@@ -1,16 +1,14 @@
-{% extends "base.html" %}
-
-{% block title %}Catálogo | Sneakers Store{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
 
 <!-- HEADER CATÁLOGO -->
 <section class="mb-10">
   <h2 class="text-3xl font-bold text-slate-900 mb-2">
-    Catálogo de Tênis
+    Catálogo de Ofertas
   </h2>
   <p class="text-slate-600">
-    Explore nossos modelos por marca, categoria e estilo.
+    Promocões imperdíveis filtre por marca, categoria e estilo.
   </p>
 </section>
 
@@ -56,11 +54,10 @@
 </section>
 
 
-<!-- GRID PRODUTOS -->
 <section>
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-    {% for tenis in tenis %}
+    {% for tenis in oferta %}
     <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
 
       <!-- Imagem -->
@@ -89,20 +86,13 @@
           Estoque: {{ tenis.estoque }}
         </p>
 
-        {% if tenis.preco_promocional %}
         <div class="flex items-center justify-between">
           <span class="text-sm font-bold text-slate-500 line-through">
             R$ {{ tenis.preco }}
           </span>
-          <span class="text-lg font-bold text-slate-900">
-            R$ {{ tenis.preco_promocional }}
-          </span>
-        {% else %}
-        <div class="flex items-center justify-between">
-          <span class="text-lg font-bold text-slate-900">
-            R$ {{ tenis.preco }}
-          </span>
-        {% endif %}
+            <span class="text-lg font-bold text-slate-900">
+                R$ {{ tenis.preco_promocional }} </span>
+
           <a href="#"
              class="text-blue-600 text-sm font-medium hover:underline">
             Ver detalhes
@@ -113,7 +103,7 @@
     </div>
     {% empty %}
       <p class="text-slate-500 col-span-full">
-        Nenhum tênis encontrado.
+        Nenhum tênis em oferta encontrado.
       </p>
     {% endfor %}
 
@@ -121,3 +111,4 @@
 </section>
 
 {% endblock %}
+

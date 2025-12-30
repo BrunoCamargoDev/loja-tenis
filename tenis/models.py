@@ -19,6 +19,7 @@ class Tenis(models.Model):
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=300)
     preco = models.DecimalField(max_digits=10, decimal_places=2)
+    preco_promocional = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     estoque = models.IntegerField()
     imagem = models.ImageField(upload_to='tenis-img/', null=True, blank=True)
     data_adc = models.DateTimeField(auto_now_add=True)

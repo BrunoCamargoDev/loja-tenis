@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tenis.views import lista_tenis, base, home, catalogo
+from tenis.views import lista_tenis, base, home, catalogo, ofertas
 from django.conf import settings
 from dashboard import views as dashboard_views
 from django.conf.urls.static import static
@@ -27,6 +27,7 @@ urlpatterns = [
     path('base/', base, name='base'),
     path('', home, name='home'),
     path('catalogo/', catalogo, name='catalogo'),
+    path('ofertas/', ofertas, name='ofertas'),
 
     # Dashboard URLs 
     path('login/', dashboard_views.login_view, name='dashboard_login'),

@@ -45,8 +45,13 @@
      Tênis
   </a>
 
-  <a href="#"
-     class="transition hover:text-blue-400">
+  <a href="{% url 'ofertas' %}"
+     class="transition
+     {% if request.resolver_match.url_name == 'ofertas' %}
+        text-blue-500
+     {% else %}
+        hover:text-blue-400
+     {% endif %}">
      Ofertas
   </a>
 
@@ -70,7 +75,7 @@
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-400">
     <div class="max-w-7xl mx-auto px-4 py-6 text-center text-sm">
-      © {{ year|default:"2025" }} Sneakers Store v1.0 — Todos os direitos reservados.
+      © {{ year|default:"2025" }} Vitrine de tênis v1.0 — Todos os direitos reservados.
     </div>
   </footer>
 
