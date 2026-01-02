@@ -8,6 +8,9 @@
   <!-- Tailwind CDN (depois pode trocar por build) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+   <!-- Flowbite CDN -->
+  <link href="https://unpkg.com/flowbite@latest/dist/flowbite.min.css" rel="stylesheet" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -24,7 +27,7 @@
 
       
 <!-- Menu -->
-<nav class="space-x-6 text-sm font-medium">
+<nav class="text-sm font-medium space-x-2 md:space-x-6">
   <a href="{% url 'home' %}"
      class="transition
      {% if request.resolver_match.url_name == 'home' %}
@@ -63,6 +66,9 @@
 
 
     </div>
+
+    {% block fullwidth %}{% endblock %}
+
   </header>
 
   <!-- CONTEÚDO -->
@@ -74,10 +80,13 @@
 
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 py-6 text-center text-sm">
+   {% block footer %}{% endblock %}
+    <div class="border-t border-slate-800 max-w-7xl mx-auto px-4 py-6 text-center text-xs">
       © {{ year|default:"2025" }} Vitrine de tênis v1.0 — Todos os direitos reservados.
     </div>
   </footer>
+   
 
+  <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
 </body>
 </html>
