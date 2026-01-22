@@ -103,7 +103,7 @@
             R$ {{ tenis.preco }}
           </span>
         {% endif %}
-          <a href="#"
+          <a href="{% url 'detalhes' tenis.id %}"
              class="text-blue-600 text-sm font-medium hover:underline">
             Ver detalhes
           </a>

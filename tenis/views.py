@@ -61,3 +61,7 @@ def ofertas(request):
         'marcas': Marca.objects.all(),
         'categorias': Categoria.objects.all(),
     })
+
+def detalhes(request, id):
+    tenis = Tenis.objects.get(id=id)
+    return render(request, 'detalhes/detalhes.html', {'tenis': tenis})

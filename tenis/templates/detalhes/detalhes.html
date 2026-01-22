@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Detalhes do Tênis{% endblock %}
+
+{% block content %}
+<!-- DETALHES DO TÊNIS -->
+<section class="mb-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <!-- Imagem do tênis -->
+    <div>
+      <img src="{{ tenis.imagem.url }}" alt="{{ tenis.nome }}"
+        class="w-full h-auto rounded-lg shadow-md">
+    </div>
+
+    <!-- Informações do tênis -->
+    <div class="flex flex-col">
+      <h2 class="text-3xl font-bold text-slate-900 mb-4">
+        {{ tenis.nome }}
+      </h2> 
+        <p class="text-1xl font-bold text-slate-900 mb-4">
+        Marca: {{ tenis.marca.nome }}
+      </p>
+      <p class="text-slate-600 mb-4">
+        {{ tenis.descricao }}
+      </p>
+
+      {% if tenis.preco_promocional %}
+      <p class="text-lg text-slate-500 line-through mb-6">
+        R$ {{ tenis.preco }}
+      </p>
+        <p class="text-2xl font-bold text-slate-900 mb-6">
+            R$ {{ tenis.preco_promocional }}
+        </p>
+
+        {% else %}
+
+        <p class="text-2xl font-bold text-slate-900 mb-6">
+        R$ {{ tenis.preco }}
+      </p>
+
+      {% endif %}
+
+      <button
+        class="bg-slate-900 text-white rounded-lg h-10 w-56 text-sm hover:bg-slate-800 transition justify-center">
+        Adicionar ao Carrinho
+      </button>
+      <button class="bg-slate-900 text-white rounded-lg h-10 w-56 text-sm hover:bg-slate-800 transition justify-center mt-2">
+      <a href="{% url 'catalogo' %}">Voltar</a></button>
+    </div>
+
+  </div>
+
+</section>
+{% endblock %}
