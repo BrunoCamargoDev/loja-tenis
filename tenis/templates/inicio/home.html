@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
+{% block mensagem %}{% endblock %}
+
 {% block fullwidth %}
+
 
 {% load static %}
 
@@ -42,13 +45,124 @@
     </button>
 </div>
 
-{% endblock %}
+<div class="bg-slate-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4a2 2 0 012-2m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Entrega Rápida</h4>
+                    <p class="text-xs text-slate-500">Envio em até 24h úteis</p>
+                </div>
+            </div>
 
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Originalidade</h4>
+                    <p class="text-xs text-slate-500">Produtos 100% autênticos</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Até 10x sem Juros</h4>
+                    <p class="text-xs text-slate-500">No cartão de crédito</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="bg-blue-100 p-3 rounded-full text-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 text-sm">Suporte VIP</h4>
+                    <p class="text-xs text-slate-500">Via WhatsApp especializado</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
 
 
 {% block title %}Home | Sneakers Store{% endblock %}
 
+
+{% block content_meio %} 
+
+<section class="bg-slate-100 px-6 py-16 bg-slate-100 rounded-xl shadow-sm">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+            ESCOLHA SEU <span class="text-blue-600">TÊNIS</span>
+        </h2>
+        <p class="text-slate-500 mt-2">As melhores curadorias separadas para o seu corre diário.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+        
+        <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=800" alt="Lançamentos" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
+                <span class="text-blue-400 font-bold uppercase tracking-widest text-sm mb-2">Novo Drop</span>
+                <h3 class="text-white text-4xl font-bold mb-4">Os Mais <br> Desejados</h3>
+                <a href="{% url 'catalogo' %}" class="w-fit bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-blue-600 hover:text-white transition">Conferir agora</a>
+            </div>
+        </div>
+
+        <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden rounded-2xl bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800" alt="Skate" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition flex items-center justify-center">
+                <h3 class="text-white text-2xl font-black uppercase italic">Linha Performance</h3>
+            </div>
+        </div>
+
+        <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500" alt="Casual" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition flex items-end p-4">
+                <h3 class="text-white font-bold">Clássicos</h3>
+            </div>
+        </div>
+
+        <a href="{% url 'ofertas' %}" class="md:col-span-1 md:row-span-1 relative group overflow-hidden rounded-2xl bg-slate-200 border-2 border-transparent hover:border-blue-500 transition" >
+            <div class="w-full h-full bg-slate-900 flex flex-col items-center justify-center p-6 text-center">
+                <p class="text-blue-500 font-bold text-lg mb-1">Ofertas</p>
+                <h3 class="text-white text-xl font-bold mb-4">Até 40% OFF</h3>
+                <span class="text-slate-400 text-xs">Aproveite a queima de estoque</span>
+            </div>
+          </a>
+
+    </div>
+</section>
+
+{% endblock %}
+
+
+
 {% block content %}
+
+
+
 
 <!-- HERO -->
 <section class="bg-white rounded-xl shadow-sm p-7 mb-12 overflow-y-auto">
@@ -198,11 +312,19 @@
     <!-- Newsletter -->
     <div>
       <h4 class="font-semibold text-white mb-3">Receba novidades</h4>
-      <form class="flex flex-col gap-3">
+      <form class="flex flex-col gap-3" method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+          <input
+          type="text"
+          placeholder="Seu nome"
+          class="px-4 py-2 rounded bg-slate-800 border border-slate-700 focus:outline-none focus:ring focus:ring-slate-600"
+          name="nome"
+        >
         <input
           type="email"
           placeholder="Seu e-mail"
           class="px-4 py-2 rounded bg-slate-800 border border-slate-700 focus:outline-none focus:ring focus:ring-slate-600"
+          name="email"
         >
         <button
           type="submit"
@@ -214,7 +336,6 @@
     </div>
 
   </div>
-
 
 {% endblock %}
 

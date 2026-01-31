@@ -40,6 +40,22 @@ class Tenis(models.Model):
         on_delete=models.CASCADE
     )
 
+    class Meta:
+        verbose_name = 'Tênis'
+        verbose_name_plural = 'Tênis'
+        
+    def __str__(self):
+        return self.nome
+    
+
+
+class Usuario(models.Model):
+    nome = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+
+    class Meta:
+        verbose_name = 'Usuário'
+        verbose_name_plural = 'Usuários'
 
     def __str__(self):
         return self.nome

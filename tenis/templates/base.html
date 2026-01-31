@@ -16,6 +16,22 @@
 
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
 
+   {% block mensagens %} 
+
+   {% if messages %}
+
+    {% for message in messages %}
+     <div class="bg-green-600 text-white px-4 py-3 w-64 fixed top-5 left-[50%] z-[999] transform -translate-x-[50%] rounded text-center" role="alert">
+      <span class="block sm:inline text-center">{{ message }}</span>
+    </div>
+    {% endfor %}
+
+  {% endif %}
+
+    {% endblock %}
+
+
+
   <!-- HEADER -->
   <header class="bg-slate-900 text-white">
     <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -67,12 +83,20 @@
 
     </div>
 
+
+
     {% block fullwidth %}{% endblock %}
 
   </header>
 
+  <section>
+      {% block content_meio %} {% endblock %}
+  </section>
+
   <!-- CONTEÚDO -->
   <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-8">
+
+
     {% block content %}
     <!-- Conteúdo das páginas -->
     {% endblock %}
