@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, redirect
 from .models import Tenis, Marca, Categoria, Usuario
+from django.views import View
 from django.contrib import messages
 
 def lista_tenis(request):
@@ -75,3 +76,10 @@ def ofertas(request):
 def detalhes(request, id):
     tenis = Tenis.objects.get(id=id)
     return render(request, 'detalhes/detalhes.html', {'tenis': tenis})
+
+
+class CarrinhoView(View):
+    def get(self, request):
+        tenis = Tenis.objects.all()  # Substitua por lógica para obter os itens do carrinho do usuário
+            
+        return render(request, 'carrinho/carrinho.html', {'tenis': tenis})

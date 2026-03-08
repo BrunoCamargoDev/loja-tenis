@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tenis.views import lista_tenis, base, home, catalogo, ofertas, detalhes
+from tenis.views import lista_tenis, base, home, catalogo, ofertas, detalhes, CarrinhoView
 from django.conf import settings
 from dashboard import views as dashboard_views
 from django.conf.urls.static import static
@@ -29,6 +29,7 @@ urlpatterns = [
     path('catalogo/', catalogo, name='catalogo'),
     path('ofertas/', ofertas, name='ofertas'),
     path('detalhes/<int:id>/', detalhes, name='detalhes'),
+    path('carrinho/', CarrinhoView.as_view(), name='carrinho'),  # Exemplo de URL para o carrinho
 
     # Dashboard URLs 
     path('login/', dashboard_views.login_view, name='dashboard_login'),

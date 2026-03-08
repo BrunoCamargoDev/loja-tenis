@@ -47,6 +47,12 @@ class Tenis(models.Model):
     def __str__(self):
         return self.nome
     
+    @property
+    def desconto_valor(self):
+        if self.preco_promocional:
+            return self.preco - self.preco_promocional
+        return 0
+    
 
 
 class Usuario(models.Model):

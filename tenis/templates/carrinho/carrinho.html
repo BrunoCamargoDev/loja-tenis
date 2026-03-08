@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-6">
+  <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Seu Carrinho</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+    <div class="lg:col-span-2 space-y-4">
+      
+      <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop" 
+             alt="Tênis Vermelho" class="w-24 h-24 object-cover rounded-md">
+        
+        <div class="ml-4 flex-1">
+          <h3 class="font-bold text-lg text-slate-800">Nike Air Max 90</h3>
+          <p class="text-sm text-slate-500">Tamanho: 42 | Cor: Vermelho</p>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-blue-600 font-bold">R$ 899,90</span>
+            
+            <div class="inline-flex items-center border border-slate-300 rounded">
+              <button class="px-2 py-1 hover:bg-slate-100 border-r border-slate-300 text-slate-600">-</button>
+              <span class="px-3 py-1 font-medium text-sm">1</span>
+              <button class="px-2 py-1 hover:bg-slate-100 border-l border-slate-300 text-slate-600">+</button>
+            </div>
+          </div>
+        </div>
+        
+        <button class="ml-4 text-slate-400 hover:text-red-500 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+        </button>
+      </div>
+
+      <div class="flex items-center bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=200&auto=format&fit=crop" 
+             alt="Tênis Jordan" class="w-24 h-24 object-cover rounded-md">
+        
+        <div class="ml-4 flex-1">
+          <h3 class="font-bold text-lg text-slate-800">Air Jordan 1 Low</h3>
+          <p class="text-sm text-slate-500">Tamanho: 40 | Cor: Branco/Azul</p>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-blue-600 font-bold">R$ 1.299,00</span>
+            <div class="inline-flex items-center border border-slate-300 rounded">
+              <button class="px-2 py-1 hover:bg-slate-100 border-r border-slate-300">-</button>
+              <span class="px-3 py-1 font-medium text-sm">1</span>
+              <button class="px-2 py-1 hover:bg-slate-100 border-l border-slate-300">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="ml-4 text-slate-400 hover:text-red-500 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+        </button>
+      </div>
+
+      <a href="{% url 'catalogo' %}" class="inline-block text-blue-600 hover:underline text-sm font-medium mt-4">
+        ← Continuar Comprando
+      </a>
+    </div>
+
+    <div class="lg:col-span-1">
+      <div class="bg-white p-6 rounded-lg shadow-md border border-slate-200 sticky top-4">
+        <h3 class="text-xl font-bold text-slate-900 mb-6 border-b pb-4">Resumo do Pedido</h3>
+        
+        <div class="space-y-4 text-sm text-slate-600">
+          <div class="flex justify-between">
+            <span>Subtotal (2 itens)</span>
+            <span class="font-semibold text-slate-900">R$ 2.198,90</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Frete</span>
+            <span class="text-green-600 font-medium">Grátis</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Taxas estimadas</span>
+            <span class="font-semibold text-slate-900">R$ 0,00</span>
+          </div>
+          <hr class="border-slate-100">
+          <div class="flex justify-between text-lg font-bold text-slate-900 pt-2">
+            <span>Total</span>
+            <span class="text-blue-600">R$ 2.198,90</span>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label class="block text-xs font-semibold text-slate-500 uppercase mb-2">Cupom de Desconto</label>
+          <div class="flex gap-2">
+            <input type="text" placeholder="Código" class="flex-1 text-sm border-slate-300 rounded px-3 focus:ring-blue-500 focus:border-blue-500">
+            <button class="bg-slate-200 px-4 py-2 rounded text-sm font-bold hover:bg-slate-300 transition">Aplicar</button>
+          </div>
+        </div>
+
+        <button class="w-full mt-8 bg-blue-600 text-white font-bold py-4 rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+          Finalizar Compra
+        </button>
+        
+        <div class="mt-4 flex justify-center items-center gap-2">
+           <img src="https://img.icons8.com/color/48/000000/visa.png" class="h-6" alt="Visa">
+           <img src="https://img.icons8.com/color/48/000000/mastercard.png" class="h-6" alt="Mastercard">
+           <img src="https://img.icons8.com/color/48/000000/pix.png" class="h-6" alt="Pix">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}  
+
