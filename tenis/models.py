@@ -58,6 +58,7 @@ class Tenis(models.Model):
 class Usuario(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
+    senha = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Usuário'

@@ -103,10 +103,17 @@
             R$ {{ tenis.preco }}
           </span>
         {% endif %}
+        {% if user.is_authenticated %}
           <a href="{% url 'detalhes' tenis.id %}"
              class="text-blue-600 text-sm font-medium hover:underline">
             Ver detalhes
           </a>
+        {% else %}
+          <a href="{% url 'login_usuario' %}?next={% url 'detalhes' tenis.id %}"
+             class="text-blue-600 text-sm font-medium hover:underline">
+            Ver detalhes
+          </a>
+        {% endif %}
         </div>
       </div>
 
