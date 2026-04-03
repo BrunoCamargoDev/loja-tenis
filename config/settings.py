@@ -86,6 +86,9 @@ DATABASES = {
         'PASSWORD': environ.Env().str('DB_PASSWORD'),
         'HOST': environ.Env().str('DB_HOST'),
         'PORT': environ.Env().str('DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
 
