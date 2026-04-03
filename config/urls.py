@@ -42,3 +42,6 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # Em produção (Render), o Django não serve arquivos estáticos, então usamos Whitenoise para isso.
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
